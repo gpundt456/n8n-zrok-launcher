@@ -1,5 +1,4 @@
-"""Windows-first self-hosted n8n launcher with zrok and webhook-only proxy.
-
+"""
 This script intentionally DOES NOT publish the n8n editor or local files.
 The public zrok tunnel points to a filtering proxy, not directly to n8n.
 """
