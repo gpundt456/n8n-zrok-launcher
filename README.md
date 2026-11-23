@@ -4,11 +4,11 @@ A Python script that launches n8n locally, exposes its webhooks through a public
 
 ## Why I Built This
 
-I use n8n to automate different AI workflows on my own computer. One problem I ran into was getting external services like Telegram to communicate with my local n8n instance without needing cloud hosting.
+I use n8n to automate different AI workflows on my own computer. One problem I ran into was that using Telegram nodes that enhance n8n workflows require a public HTTPS webhook to be set.
 
-I used zrok to create a public HTTPS tunnel, but the URL could change whenever I restarted it. This meant I had to repeatedly update webhook configurations and restart services manually.
+I looked for a long time to find a cloud tunneling service that could provide reliable and unlimited service. I tried things like Ngrok, Localtunnel, and Cloudflare, all were either unreliable or too limited for everyday use. I eventually landed on Zrok because they provide 5GB of data transfer per day for the free tier and that is more than enough for what I was working on.
 
-I created this project to automate that process. Instead of manually starting services, finding the new tunnel URL, and updating Telegram, I can launch the system through a Windows batch file.
+I created this project to automate the process of setting the n8n telegram webhook and setting certain n8n env variables that were needed for some specific use cases. Instead of manually starting services, finding the new tunnel URL, and updating Telegram, I can launch the system through a Windows .bat.
 
 ## Features
 
@@ -42,6 +42,7 @@ I created this project to automate that process. Instead of manually starting se
 4. The script detects that address and restarts n8n with the updated webhook configuration.
 5. If Telegram credentials are configured, it registers the public webhook URL with Telegram.
 6. The script monitors the running services and handles cleanup when stopped.
+7. N8n launches in the browser with the Zrok HTTPS.
 
 The n8n editor remains accessible on the local computer, while the public tunnel forwards requests through the filtering proxy.
 
@@ -117,4 +118,4 @@ This project was developed with AI assistance, including help with Python and ba
 
 I directed the project around a problem I encountered while building local n8n automations, worked through configuration and integration issues, and tested the original setup on my own computer.
 
-AI was used as a development tool throughout the process, particularly for generating and refining code. The project reflects my experience connecting and operating these tools to automate a real workflow.
+AI was used as a development tool throughout the process, particularly for generating and refining code. The project reflects my experience connecting and operating these tools to automate tasks.
